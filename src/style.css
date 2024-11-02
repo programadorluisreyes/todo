@@ -1,0 +1,45 @@
+.col {
+  display:flex;
+  flex-direction:column;
+}
+.gap-4 {
+  gap: 4px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.container {
+  border-radius: 5px;
+  border-width: thin;
+  border-style: solid;
+}
+
+.container_item {
+}
+
+.container_form {
+
+}
+
+.title {
+  font-weight: bold;
+}
+
+.description {
+ font-weight: normal; 
+}
+
+.primary {
+
+}
+
+.secondary {
+  display: flex;
+}

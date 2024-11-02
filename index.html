@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    
+    <form>
+      <div class="row container justify-between">
+        <div class="col gap-4">
+          <input type="text" id="inputTitle" placeholder="Title"></input>
+          <textarea type="text" id="inputDescription" placeholder="Description"></textarea>
+        </div>
+        <div class="col justify-between">
+          <button id="add" type="submit">Add</button>
+          <button id="clean" type="button">Clean</button>
+        </div>
+      </div>
+    </form>
+    <div id="app"></div>
+    <div id="todos"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
