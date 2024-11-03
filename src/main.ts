@@ -82,8 +82,8 @@ const handleSubmit = (e: Event) => {
   button.onclick=handleDelete;
   cardItemContainer.appendChild(button);
   app.appendChild(cardItemContainer);
-  //cardItemContainer.innerHTML=button({id:id, title:inputTitle.value, description:inputDescription.value} as newTodo);
   /*
+  //cardItemContainer.innerHTML=button({id:id, title:inputTitle.value, description:inputDescription.value} as newTodo);
   console.log(inputTitle.value);
   cardItemContainer.classList.add('row', 'justify-between', 'container', 'container-item');
   const contentContainer = document.createElement('div')
