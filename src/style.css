@@ -7,16 +7,45 @@
   
 }
 
-p{
-  font: 16px/1.5 sans-serif;
+
+*{font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
 }
 
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  height: 100vh;
+}
 /*CUSTOM VARIABLES HERE*/
-body {
-  font: 16px/1.5 sans-serif;
-}
-
-
 .col {
   display:flex;
   flex-direction:column;
@@ -37,6 +66,10 @@ body {
   width:60%;
 }
 
+.w-30{
+  width:30%;
+}
+
 .row {
   display: flex;
   flex-direction: row;
@@ -55,27 +88,30 @@ body {
 }
 
 .container {
-  border-radius: 5px;
+  
   border-width: thin;
-  border-style: solid;
+  border: groove;
+  border: 1px solid #ccc;
 }
 
 .rounded-sm {
   border-radius: 5px;
 }
 
-.container_item {
-}
 
-.container_form {
-
-}
 .secondary-text {
   color:#495255;
 }
 
+.overflow-scroll {
+  position: sticky;
+  overflow: scroll;
+  height: auto;
+}
+
 .title {
   font-weight: bold;
+  margin: 0;
 }
 
 .text-white {
@@ -85,20 +121,61 @@ body {
   color: #212121;
 }
 
+.hidden{
+  
+  /*display: none;*/
+  visibility: hidden;
+}
+span{
+  font-weight: bold;
+}
+
 .description {
  font-weight: normal; 
+ margin: 0;
+}
+
+.toast-container{
+    position: fixed;
+    place-content: end;
+    display: flex;
 }
 
 .hover\:primary:hover {
   opacity: 0.75;
-  background-color: #212121;
+ /* background-color: #212121;*/
+}
+
+.hover\:secondary:hover {
+  opacity: 0.75;
+ /* background-color: #212121;*/
+}
+.z-100 {
+  z-index: 100;
 }
 
 .primary{
-  background-color: #212121;
-  
+  background-color: #ccc; 
 }
 .secondary {
   background-color: #ddd;
 }
-/**/
+
+#donecounter, #todocounter{
+  margin-left: 2px;
+}
+
+.text-sm {
+  font-size:x-small;
+  margin: 0;
+}
+
+.elementFadeIn {
+    /*  made-by-luis reyes */
+    -webkit-animation: fadeIn 0.5s ease ;
+    animation: fadeIn 0.5s ease ;
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0 }
+    100% { opacity : 1 }
+  }
