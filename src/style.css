@@ -8,7 +8,7 @@
 }
 
 
-body {font-family: Arial;}
+*{font-family: Arial;}
 
 /* Style the tab */
 .tab {
@@ -28,7 +28,6 @@ body {font-family: Arial;}
   transition: 0.3s;
   font-size: 17px;
 }
-
 /* Change background color of buttons on hover */
 .tab button:hover {
   background-color: #ddd;
@@ -46,11 +45,7 @@ body {font-family: Arial;}
   border: 1px solid #ccc;
   height: 100vh;
 }
-
 /*CUSTOM VARIABLES HERE*/
-
-
-
 .col {
   display:flex;
   flex-direction:column;
@@ -69,6 +64,10 @@ body {font-family: Arial;}
 
 .w-60{
   width:60%;
+}
+
+.w-30{
+  width:30%;
 }
 
 .row {
@@ -123,7 +122,9 @@ body {font-family: Arial;}
 }
 
 .hidden{
-  display: none;
+  
+  /*display: none;*/
+  visibility: hidden;
 }
 span{
   font-weight: bold;
@@ -134,14 +135,27 @@ span{
  margin: 0;
 }
 
+.toast-container{
+    position: fixed;
+    place-content: end;
+    display: flex;
+}
+
 .hover\:primary:hover {
   opacity: 0.75;
  /* background-color: #212121;*/
 }
 
+.hover\:secondary:hover {
+  opacity: 0.75;
+ /* background-color: #212121;*/
+}
+.z-100 {
+  z-index: 100;
+}
+
 .primary{
-  background-color: #ccc;
-  
+  background-color: #ccc; 
 }
 .secondary {
   background-color: #ddd;
@@ -155,9 +169,8 @@ span{
   font-size:x-small;
   margin: 0;
 }
-/**/
-  /**/
-  .elementFadeIn {
+
+.elementFadeIn {
     /*  made-by-luis reyes */
     -webkit-animation: fadeIn 0.5s ease ;
     animation: fadeIn 0.5s ease ;

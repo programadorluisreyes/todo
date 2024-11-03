@@ -9,18 +9,42 @@
 </head>
 
 <body>
+
+  <div id="toast" class="w-full toast-container z-100 hidden">
+    <div class="container w-30 p-4">
+      <p>"To do" item succesfully added ✅</p>
+      <div class="row justify-between">
+      </div>
+    </div>
+  </div>
+  <dialog id="markDialog" class="container elementFadeIn">
+    <p>Are you sure to mark this todo as done?</p>
+    <div class="row justify-between">
+      <button id="btnmarkdone" class="primary hover:primary text-black rounded-sm">Add</button>
+      <button id="btncanceldone" class="secondary hover:secondary text-black rounded-sm">Cancel</button>
+    </div>
+  </dialog>
+
+  <dialog id="delDialog" class="container elementFadeIn">
+    <p>Are you sure to delete this todo?</p>
+    <div class="row justify-between">
+      <button id="btndeletetodo" class="primary hover:primary text-black rounded-sm">Add</button>
+      <button id="btncanceltodo" class="secondary hover:secondary text-black rounded-sm">Cancel</button>
+    </div>
+  </dialog>
+
   <div class="w-60 m-auto">
 
-    <h2>To do management</h2>
-    <p class="secondary-text">Choose any option to begin</p>
+    <h2>To do management - by Luis Rodolfo Reyes</h2>
+    <p class="secondary-text">Choose "New" option to begin</p>
 
     <div class="tab row">
-      <button class="tablinks w-full row" onclick="openCity(event, 'London')">New</button>
-      <button class="tablinks w-full row" onclick="openCity(event, 'Paris')">To do(s)<span id="todocounter"></span></button>
-      <button class="tablinks w-full row" onclick="openCity(event, 'Tokyo')">Done<span id="donecounter"></span></button>
+      <button id="tab1" class="tablinks w-full row" >New</button>
+      <button id="tab2" class="tablinks w-full row" >To do(s)<span id="todocounter"></span></button>
+      <button id="tab3" class="tablinks w-full row" >Done<span id="donecounter"></span></button>
     </div>
 
-    <div id="London" class="tabcontent">
+    <div id="new" class="tabcontent">
       <h3>New</h3>
       <p class="secondary-text">Create a new todo here</p>
       <form class="/w-60 m-auto">
@@ -39,54 +63,24 @@
       </form>
     </div>
 
-    <div id="Paris" class="tabcontent">
+    <div id="todo" class="tabcontent">
       <h1>To do list</h1>
       <p class="secondary-text">
         Todo list content will be shown here
       </p>
-      <div id="app" class="">
+      <div id="todoList" class="">
       </div>
     </div>
 
-    <div id="Tokyo" class="tabcontent">
+    <div id="done" class="tabcontent">
       <h1>Done list</h1>
       <p class="secondary-text">
         Done list content will be shown here
       </p>
-      <div id="done" class="">
+      <div id="doneList" class="">
       </div>
     </div>
-    <dialog id="markDialog" class="container elementFadeIn">
-      <p>Are you sure to mark this todo as done?</p>
-      <div class="row justify-between">
-        <button id="btnmarkdone" class="primary hover:primary text-black rounded-sm">Add</button>
-        <button id="btncanceldone" class="primary hover:primary text-black rounded-sm">Cancel</button>
-      </div>
-    </dialog>
-
-    <dialog id="delDialog" class="container elementFadeIn">
-      <p>Are you sure to delete this todo?</p>
-      <div class="row justify-between">
-        <button id="btndeletetodo" class="primary hover:primary text-black rounded-sm">Add</button>
-        <button id="btncanceltodo" class="primary hover:primary text-black rounded-sm">Cancel</button>
-      </div>
-    </dialog>
     <script type="module" src="/src/main.ts"></script>
-    <script>
-      function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-      }
-    </script>
 </body>
 </div>
 
