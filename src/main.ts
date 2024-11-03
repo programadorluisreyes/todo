@@ -65,7 +65,8 @@ const handleSubmit = (e: Event) => {
   rowCheck.classList.add('row', 'justify-end')
   button.classList.add('hover:primary','primary', 'text-white', 'rounded-sm');
   rowContainer.classList.add('w-full');
-  cardItemContainer.classList.add('p-4')
+  cardItemContainer.classList.add('p-4', 'elementFadeIn');
+  dateP.classList.add('text-sm');
   
   dateP.textContent = fullDate;
   title.textContent= inputTitle.value;

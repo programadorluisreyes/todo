@@ -7,11 +7,15 @@
     <title>Todo list</title>
   </head>
   <body>
+
+    
     
     <form class="w-60 m-auto">
       <div class="row container justify-between p-4">
         <div class="col gap-4">
+          <label>Title</label>
           <input type="text" id="inputTitle" placeholder="Title"></input>
+          <label>Description</label>
           <textarea type="text" id="inputDescription" placeholder="Description"></textarea>
         </div>
         <div class="col justify-between">
@@ -22,20 +26,20 @@
     </form>
     <div class="w-60 m-auto">
       <h1>To do list</h1>
-      <p class="read-the-docs">
+      <p class="secondary-text">
         Todo list content will be shown here
       </p>
-      <div id="app" >
+      <div id="app" class="overflow-scroll">
       </div>
       <h1>Done list</h1>
-      <p class="read-the-docs">
+      <p class="secondary-text">
         Done list content will be shown here
       </p>
-      <div id="done">
+      <div id="done" class="overflow-scroll">
       </div>
     </div>
 
-    <dialog id="markDialog" class="container">
+    <dialog id="markDialog" class="container elementFadeIn">
       <p>Are you sure to mark this todo as done?</p>
       <div class="row justify-between">
         <button id="btnmarkdone" class="primary hover:primary text-white rounded-sm">Add</button>
@@ -43,7 +47,7 @@
       </div>
     </dialog>
 
-    <dialog id="delDialog" class="container">
+    <dialog id="delDialog" class="container elementFadeIn">
       <p>Are you sure to delete this todo?</p>
       <div class="row justify-between">
         <button id="btndeletetodo" class="primary hover:primary text-white rounded-sm">Add</button>

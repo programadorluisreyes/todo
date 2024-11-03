@@ -11,10 +11,9 @@ p{
   font: 16px/1.5 sans-serif;
 }
 
+
 /*CUSTOM VARIABLES HERE*/
-body {
-  font: 16px/1.5 sans-serif;
-}
+
 
 
 .col {
@@ -57,7 +56,7 @@ body {
 .container {
   border-radius: 5px;
   border-width: thin;
-  border-style: solid;
+  border: groove;
 }
 
 .rounded-sm {
@@ -74,8 +73,15 @@ body {
   color:#495255;
 }
 
+.overflow-scroll {
+  position: sticky;
+  overflow: scroll;
+  height: auto;
+}
+
 .title {
   font-weight: bold;
+  margin: 0;
 }
 
 .text-white {
@@ -87,6 +93,7 @@ body {
 
 .description {
  font-weight: normal; 
+ margin: 0;
 }
 
 .hover\:primary:hover {
@@ -101,4 +108,19 @@ body {
 .secondary {
   background-color: #ddd;
 }
+
+.text-sm {
+  font-size:small;
+  margin: 0;
+}
 /**/
+  /**/
+  .elementFadeIn {
+    /*  made-by-luis reyes */
+    -webkit-animation: fadeIn 0.5s ease ;
+    animation: fadeIn 0.5s ease ;
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0 }
+    100% { opacity : 1 }
+  }
