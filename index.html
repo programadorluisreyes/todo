@@ -4,24 +4,52 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Todo list</title>
   </head>
   <body>
     
-    <form>
-      <div class="row container justify-between">
+    <form class="w-60 m-auto">
+      <div class="row container justify-between p-4">
         <div class="col gap-4">
           <input type="text" id="inputTitle" placeholder="Title"></input>
           <textarea type="text" id="inputDescription" placeholder="Description"></textarea>
         </div>
         <div class="col justify-between">
-          <button id="add" type="submit">Add</button>
-          <button id="clean" type="button">Clean</button>
+          <button id="add"   type="submit" class="primary text-white rounded-sm">Add</button>
+          <button id="clean" type="button" class="secondary text-black rounded-sm">Clean</button>
         </div>
       </div>
     </form>
-    <div id="app"></div>
-    <div id="todos"></div>
+    <div class="w-60 m-auto">
+      <h1>To do list</h1>
+      <p class="read-the-docs">
+        Todo list content will be shown here
+      </p>
+      <div id="app" >
+      </div>
+      <h1>Done list</h1>
+      <p class="read-the-docs">
+        Done list content will be shown here
+      </p>
+      <div id="done">
+      </div>
+    </div>
+
+    <dialog id="markDialog" class="container">
+      <p>Are you sure to mark this todo as done?</p>
+      <div class="row justify-between">
+        <button id="btnmarkdone" class="primary hover:primary text-white rounded-sm">Add</button>
+        <button id="btncanceldone" class="primary hover:primary text-white rounded-sm">Cancel</button>
+      </div>
+    </dialog>
+
+    <dialog id="delDialog" class="container">
+      <p>Are you sure to delete this todo?</p>
+      <div class="row justify-between">
+        <button id="btndeletetodo" class="primary hover:primary text-white rounded-sm">Add</button>
+        <button id="btncanceltodo" class="primary hover:primary text-white rounded-sm">Cancel</button>
+      </div>
+    </dialog>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
