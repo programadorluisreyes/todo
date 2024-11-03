@@ -18,9 +18,12 @@ const cancelButton = document.querySelector("#btncanceldone") as HTMLButtonEleme
 const doneTodoButton = document.querySelector("#btnmarkdone") as HTMLButtonElement;
 const btndeletetodo = document.querySelector("#btndeletetodo") as HTMLButtonElement;
 const btncanceltodo = document.querySelector("#btncanceltodo") as HTMLButtonElement;  
+const todocounter = document.querySelector("#todocounter") as HTMLSpanElement;
+const donecounter = document.querySelector("#donecounter") as HTMLSpanElement;
 
 const handleDelete = (e:Event) : void=> {
   modalDelete.showModal();
+
   btndeletetodo.addEventListener('click', function () {
     const btnel = e.target as HTMLButtonElement;
     const buttonClass = btnel.dataset.id;
@@ -29,6 +32,9 @@ const handleDelete = (e:Event) : void=> {
     const el = btnel.parentNode?.parentNode?.parentNode;
     el?.remove();
     modalDelete.close();
+    //count
+    todocounter.textContent = `${app.children.length}`
+    donecounter.textContent = `${done.children.length}`
   });
 
   btncanceltodo.addEventListener('click', function () {
@@ -63,12 +69,12 @@ const handleSubmit = (e: Event) => {
   buttonsContainer.classList.add('col','justify-between');
   rowContainer.classList.add('row', 'justify-between');
   rowCheck.classList.add('row', 'justify-end')
-  button.classList.add('hover:primary','primary', 'text-white', 'rounded-sm');
+  button.classList.add('hover:primary','primary', 'text-black');
   rowContainer.classList.add('w-full');
   cardItemContainer.classList.add('p-4', 'elementFadeIn');
   dateP.classList.add('text-sm');
   
-  dateP.textContent = fullDate;
+  dateP.textContent = `Created: ${fullDate}`;
   title.textContent= inputTitle.value;
   description.textContent = inputDescription.value;
   labelCheck.textContent = 'done';
@@ -76,7 +82,7 @@ const handleSubmit = (e: Event) => {
   check.type="checkbox";
   check.dataset.id =  `S${id}`;
   button.dataset.id = `S${id}`;
-  button.innerText = "Delete" + id.toString();
+  button.innerText = "Delete";
   button.onclick=handleDelete;
   check.onchange=handleMark;
   
@@ -87,6 +93,7 @@ const handleSubmit = (e: Event) => {
   rowContainer.append(contentContainer, buttonsContainer);
   cardItemContainer.append(rowContainer);
   app.appendChild(cardItemContainer);
+  todocounter.textContent = `${app.children.length}`
   // clean
   clean();
 }
@@ -96,14 +103,27 @@ const clean = () :void => {
   inputDescription.value = "";
 }
 
+
 const handleMark = (e:Event) => {
   const elch = e.target as HTMLInputElement;
   modal.showModal();
+
+  const date = new Date();
   doneTodoButton.addEventListener("click", function () {
     const id = `${elch.dataset.id}`
     const elemento = document.querySelector(`.${id}`) as HTMLDivElement;
+    
+      const fullDate = `${(date.getMonth() + 1).toString().padStart(2, "0")}/${date.getDate().toString().padStart(2,"0")}/${date.getFullYear()}
+    ${date.getHours().toString().padStart(2,"0")}:${date.getMinutes().toString().padStart(2,"0")}:${date.getSeconds().toString().padStart(2,"0")}`
+    
+    const createdp = elemento.children[0].children[0].children[2]
+    const prevText = createdp.textContent;
+    createdp.textContent = prevText + " " + "Marked as done " + fullDate;
+   
     elch.disabled = true;
     done.appendChild(elemento);
+    todocounter.textContent = `${app.children.length}`
+    donecounter.textContent = `${done.children.length}`
     modal.close();
   });
 
@@ -117,12 +137,7 @@ document.addEventListener('submit', e => handleSubmit(e))
 cleanbtn.addEventListener('click', clean);
 //document.addEventListener('click', e => handleDelete(e))
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
 
-    
-  </div>
-`
 
 //setupCounter(document.querySelector<HTMLButtonElement>('#add')!),
 //setupChange(document.querySelector<HTMLInputElement>('#inputTitle')!);

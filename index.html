@@ -1,59 +1,93 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo list</title>
-  </head>
-  <body>
 
-    
-    
-    <form class="w-60 m-auto">
-      <div class="row container justify-between p-4">
-        <div class="col gap-4">
-          <label>Title</label>
-          <input type="text" id="inputTitle" placeholder="Title"></input>
-          <label>Description</label>
-          <textarea type="text" id="inputDescription" placeholder="Description"></textarea>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo list</title>
+</head>
+
+<body>
+  <div class="w-60 m-auto">
+
+    <h2>To do management</h2>
+    <p class="secondary-text">Choose any option to begin</p>
+
+    <div class="tab row">
+      <button class="tablinks w-full row" onclick="openCity(event, 'London')">New</button>
+      <button class="tablinks w-full row" onclick="openCity(event, 'Paris')">To do(s)<span id="todocounter"></span></button>
+      <button class="tablinks w-full row" onclick="openCity(event, 'Tokyo')">Done<span id="donecounter"></span></button>
+    </div>
+
+    <div id="London" class="tabcontent">
+      <h3>New</h3>
+      <p class="secondary-text">Create a new todo here</p>
+      <form class="/w-60 m-auto">
+        <div class="row container justify-between p-4">
+          <div class="col gap-4">
+            <label>Title</label>
+            <input type="text" required id="inputTitle" ></input>
+            <label>Description</label>
+            <textarea type="text" required id="inputDescription" ></textarea>
+          </div>
+          <div class="col justify-between">
+            <button id="add" type="submit" class="primary text-black">Add</button>
+            <button id="clean" type="button" class="secondary text-black ">Clean</button>
+          </div>
         </div>
-        <div class="col justify-between">
-          <button id="add"   type="submit" class="primary text-white rounded-sm">Add</button>
-          <button id="clean" type="button" class="secondary text-black rounded-sm">Clean</button>
-        </div>
-      </div>
-    </form>
-    <div class="w-60 m-auto">
+      </form>
+    </div>
+
+    <div id="Paris" class="tabcontent">
       <h1>To do list</h1>
       <p class="secondary-text">
         Todo list content will be shown here
       </p>
-      <div id="app" class="overflow-scroll">
+      <div id="app" class="">
       </div>
+    </div>
+
+    <div id="Tokyo" class="tabcontent">
       <h1>Done list</h1>
       <p class="secondary-text">
         Done list content will be shown here
       </p>
-      <div id="done" class="overflow-scroll">
+      <div id="done" class="">
       </div>
     </div>
-
     <dialog id="markDialog" class="container elementFadeIn">
       <p>Are you sure to mark this todo as done?</p>
       <div class="row justify-between">
-        <button id="btnmarkdone" class="primary hover:primary text-white rounded-sm">Add</button>
-        <button id="btncanceldone" class="primary hover:primary text-white rounded-sm">Cancel</button>
+        <button id="btnmarkdone" class="primary hover:primary text-black rounded-sm">Add</button>
+        <button id="btncanceldone" class="primary hover:primary text-black rounded-sm">Cancel</button>
       </div>
     </dialog>
 
     <dialog id="delDialog" class="container elementFadeIn">
       <p>Are you sure to delete this todo?</p>
       <div class="row justify-between">
-        <button id="btndeletetodo" class="primary hover:primary text-white rounded-sm">Add</button>
-        <button id="btncanceltodo" class="primary hover:primary text-white rounded-sm">Cancel</button>
+        <button id="btndeletetodo" class="primary hover:primary text-black rounded-sm">Add</button>
+        <button id="btncanceltodo" class="primary hover:primary text-black rounded-sm">Cancel</button>
       </div>
     </dialog>
     <script type="module" src="/src/main.ts"></script>
-  </body>
+    <script>
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+    </script>
+</body>
+</div>
+
 </html>
