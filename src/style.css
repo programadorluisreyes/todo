@@ -122,6 +122,13 @@ body {font-family: Arial;}
   color: #212121;
 }
 
+.hidden{
+  display: none;
+}
+span{
+  font-weight: bold;
+}
+
 .description {
  font-weight: normal; 
  margin: 0;

@@ -77,7 +77,7 @@ const handleSubmit = (e: Event) => {
   dateP.textContent = `Created: ${fullDate}`;
   title.textContent= inputTitle.value;
   description.textContent = inputDescription.value;
-  labelCheck.textContent = 'done';
+  labelCheck.textContent = 'Mark as done';
   
   check.type="checkbox";
   check.dataset.id =  `S${id}`;
@@ -112,7 +112,9 @@ const handleMark = (e:Event) => {
   doneTodoButton.addEventListener("click", function () {
     const id = `${elch.dataset.id}`
     const elemento = document.querySelector(`.${id}`) as HTMLDivElement;
-    
+    elemento.children[0].children[1].children[1].classList.add('hidden')
+    elemento.children[0].children[1].children[0].children[0].innerHTML="✅"
+    elemento.children[0].children[1].children[0].children[1].classList.add('hidden')
       const fullDate = `${(date.getMonth() + 1).toString().padStart(2, "0")}/${date.getDate().toString().padStart(2,"0")}/${date.getFullYear()}
     ${date.getHours().toString().padStart(2,"0")}:${date.getMinutes().toString().padStart(2,"0")}:${date.getSeconds().toString().padStart(2,"0")}`
     
