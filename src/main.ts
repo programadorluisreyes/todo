@@ -63,6 +63,7 @@ const handleSubmit = (e: Event) => {
   const title = document.createElement('p');
   const description = document.createElement('p');
   const dateP = document.createElement('p');
+  const dateM = document.createElement('p');
   const buttonsContainer = document.createElement('div');
   const rowContainer = document.createElement('div')
   const rowCheck = document.createElement('div');
@@ -80,6 +81,7 @@ const handleSubmit = (e: Event) => {
   rowContainer.classList.add('w-full');
   cardItemContainer.classList.add('p-4', 'elementFadeIn');
   dateP.classList.add('text-sm', 'mt-10');
+  dateM.classList.add('text-sm', 'mt-10');
   
   dateP.textContent = `Created: ${buildDateTime()}`;
   title.textContent= inputTitle.value;
@@ -95,7 +97,7 @@ const handleSubmit = (e: Event) => {
     
   rowCheck.append(labelCheck, check);
   buttonsContainer.append(rowCheck, button);
-  contentContainer.append(title, description, dateP);
+  contentContainer.append(title, description, dateP, dateM);
   rowContainer.append(contentContainer, buttonsContainer);
   cardItemContainer.append(rowContainer);
   app.appendChild(cardItemContainer);
@@ -124,16 +126,15 @@ const handleMark = (e:Event) => {
   doneTodoButton.addEventListener("click", function () {
     const id = `${elch.dataset.id}`
     const elemento = document.querySelector(`.${id}`) as HTMLDivElement;
+    console.log('elemento', elemento)
     elemento.children[0].children[1].children[1].classList.add('hidden')
     elemento.children[0].children[1].children[0].children[0].innerHTML="✅"
     elemento.children[0].children[1].children[0].children[1].classList.add('deleted')
     
-    const createdp = elemento.children[0].children[0].children[2]
-    
-    const markeddone = document.createElement('p')
-    markeddone.textContent ="Marked as done " + buildDateTime();
-    markeddone.classList.add('text-sm')
-    createdp.append(markeddone);
+    const markedp = elemento.children[0].children[0].children[3] as HTMLParagraphElement;
+    console.log(markedp)
+    markedp.textContent = "Marked as done " + buildDateTime();
+    console.log(elemento.children[0].children[0].children[2].children[0])
    
     elch.disabled = true;
     done.appendChild(elemento);
