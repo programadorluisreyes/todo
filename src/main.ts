@@ -127,14 +127,14 @@ const handleMark = (e:Event) => {
     const id = `${elch.dataset.id}`
     const elemento = document.querySelector(`.${id}`) as HTMLDivElement;
     console.log('elemento', elemento)
-    elemento.children[0].children[1].children[1].classList.add('hidden')
-    elemento.children[0].children[1].children[0].children[0].innerHTML="✅"
-    elemento.children[0].children[1].children[0].children[1].classList.add('deleted')
+    elemento.children[0].children[1].children[1].classList.add('hidden');
+    elemento.children[0].children[1].children[0].children[0].innerHTML="✅";
+    elemento.children[0].children[1].children[0].children[1].classList.add('deleted');
     
     const markedp = elemento.children[0].children[0].children[3] as HTMLParagraphElement;
     console.log(markedp)
     markedp.textContent = "Marked as done " + buildDateTime();
-    console.log(elemento.children[0].children[0].children[2].children[0])
+    console.log(elemento.children[0].children[0].children[2].children[0]);
    
     elch.disabled = true;
     done.appendChild(elemento);
