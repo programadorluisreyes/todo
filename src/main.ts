@@ -79,7 +79,7 @@ const handleSubmit = (e: Event) => {
   button.classList.add('hover:primary','primary', 'text-black');
   rowContainer.classList.add('w-full');
   cardItemContainer.classList.add('p-4', 'elementFadeIn');
-  dateP.classList.add('text-sm');
+  dateP.classList.add('text-sm', 'mt-10');
   
   dateP.textContent = `Created: ${buildDateTime()}`;
   title.textContent= inputTitle.value;
@@ -126,11 +126,14 @@ const handleMark = (e:Event) => {
     const elemento = document.querySelector(`.${id}`) as HTMLDivElement;
     elemento.children[0].children[1].children[1].classList.add('hidden')
     elemento.children[0].children[1].children[0].children[0].innerHTML="✅"
-    elemento.children[0].children[1].children[0].children[1].classList.add('hidden')
+    elemento.children[0].children[1].children[0].children[1].classList.add('deleted')
     
     const createdp = elemento.children[0].children[0].children[2]
-    const prevText = createdp.textContent;
-    createdp.textContent = prevText + " " + "Marked as done " + buildDateTime();
+    
+    const markeddone = document.createElement('p')
+    markeddone.textContent ="Marked as done " + buildDateTime();
+    markeddone.classList.add('text-sm')
+    createdp.append(markeddone);
    
     elch.disabled = true;
     done.appendChild(elemento);
