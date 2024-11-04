@@ -8,13 +8,17 @@
 }
 
 
+.bg-white {
+  background-color: #fff;
+}
 *{font-family: Arial;}
 
 /* Style the tab */
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  background-color: rgb(86, 193, 255);
+  color: white;
 }
 
 /* Style the buttons inside the tab */
@@ -27,6 +31,7 @@
   padding: 14px 16px;
   transition: 0.3s;
   font-size: 17px;
+  color: white;
 }
 /* Change background color of buttons on hover */
 .tab button:hover {
@@ -35,7 +40,8 @@
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #ccc;
+  background-color: rgb(2, 161, 253);
+  color: white;
 }
 
 /* Style the tab content */
@@ -118,7 +124,7 @@
 }
 
 .text-white {
-  color: #ddd;
+  color: white;
 }
 .text-black {
   color: #212121;
@@ -156,12 +162,20 @@ span{
 .z-100 {
   z-index: 100;
 }
-
+.text-blue {
+  color:rgb(2, 161, 253);
+}
 .primary{
-  background-color: #ccc; 
+  color: white;
+  border: none;
+  padding: 6px;
+  background-color: rgb(2, 161, 253);
 }
 .secondary {
-  background-color: #ddd;
+  background-color: #eee;
+  border: none;
+  padding: 6px;
+  color: rgb(2, 161, 253);
 }
 
 #donecounter, #todocounter{
