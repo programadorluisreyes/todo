@@ -153,11 +153,13 @@ span{
 .hover\:primary:hover {
   opacity: 0.75;
  /* background-color: #212121;*/
+ transition: 0.3s;
 }
 
 .hover\:secondary:hover {
   opacity: 0.75;
  /* background-color: #212121;*/
+ transition: 0.3s;
 }
 .z-100 {
   z-index: 100;
